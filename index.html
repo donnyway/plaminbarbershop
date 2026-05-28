@@ -149,7 +149,7 @@
     <!-- Section: The Philosophy -->
     <section id="about" class="py-32 bg-zinc-900/50">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-2xl font-heading mb-10 tracking-widest">THE INDUSTRIAL VIBE</h2>
+            <h2 class="text-5xl font-heading mb-10 tracking-widest">THE INDUSTRIAL VIBE</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="p-6 border-t border-zinc-700">
                     <h3 class="font-heading text-xs mb-4 text-amber-600">STEEL</h3>
@@ -170,7 +170,7 @@
     <!-- Section: Service Menu -->
     <section id="services" class="py-32 max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-6">
-            <h2 class="text-3xl font-heading">LAYANAN<br><span class="text-amber-600">KAMI</span></h2>
+            <h2 class="text-5xl font-heading">LAYANAN<br><span class="text-amber-600">KAMI</span></h2>
             <p class="text-gray-500 text-[10px] uppercase tracking-widest max-w-xs text-right italic">"Invest in your head, it's the only one you have."</p>
         </div>
 
@@ -201,18 +201,103 @@
         </div>
     </section>
 
-    <!-- Section: Gallery -->
+<!-- Section: Gallery -->
 <section class="py-20 bg-zinc-900">
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-2xl font-heading mb-12">THE PLAM-IN VIBE</h2>
+        
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <span class="text-amber-600 text-[10px] uppercase tracking-[0.4em] font-bold mb-4 block">
+                    Gallery
+                </span>
+                <h2 class="text-2xl md:text-4xl font-heading">
+                    THE PLAM-IN VIBE
+                </h2>
+            </div>
+
+            <p class="text-gray-500 text-[10px] uppercase tracking-[0.3em] text-right max-w-xs">
+                Industrial atmosphere crafted for modern gentlemen.
+            </p>
+        </div>
+
+        <!-- Gallery Grid -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <img src="plamin out small.png" class="hover:scale-105 transition duration-500 grayscale hover:grayscale-0">
-            <img src="plamin view small.png" class="hover:scale-105 transition duration-500 grayscale hover:grayscale-0">
-            <img src="plamin all rooms small.png" class="hover:scale-105 transition duration-500 grayscale hover:grayscale-0">
-            <img src="konsumen 1 small.png" class="hover:scale-105 transition duration-500 grayscale hover:grayscale-0">
+
+            <img src="plamin out small.png"
+                 onclick="openModal(this.src)"
+                 class="cursor-pointer hover:scale-105 transition duration-500 grayscale hover:grayscale-0 object-cover w-full aspect-square">
+
+            <img src="plamin view small.png"
+                 onclick="openModal(this.src)"
+                 class="cursor-pointer hover:scale-105 transition duration-500 grayscale hover:grayscale-0 object-cover w-full aspect-square">
+
+            <img src="plamin all rooms small.png"
+                 onclick="openModal(this.src)"
+                 class="cursor-pointer hover:scale-105 transition duration-500 grayscale hover:grayscale-0 object-cover w-full aspect-square">
+
+            <img src="konsumen 1 small.png"
+                 onclick="openModal(this.src)"
+                 class="cursor-pointer hover:scale-105 transition duration-500 grayscale hover:grayscale-0 object-cover w-full aspect-square">
+
         </div>
     </div>
 </section>
+
+<!-- Image Modal -->
+<div id="imageModal"
+     class="fixed inset-0 bg-black/90 backdrop-blur-sm hidden items-center justify-center z-[999] p-6">
+
+    <!-- Close Button -->
+    <button onclick="closeModal()"
+            class="absolute top-6 right-6 text-white text-4xl font-light hover:text-amber-600 transition">
+        &times;
+    </button>
+
+    <!-- Image -->
+    <img id="modalImage"
+         src=""
+         class="max-w-full max-h-full object-contain rounded-sm shadow-2xl animate-fadeIn">
+</div>
+
+<!-- Modal Script -->
+<script>
+    function openModal(src) {
+        document.getElementById('imageModal').classList.remove('hidden');
+        document.getElementById('imageModal').classList.add('flex');
+        document.getElementById('modalImage').src = src;
+    }
+
+    function closeModal() {
+        document.getElementById('imageModal').classList.add('hidden');
+        document.getElementById('imageModal').classList.remove('flex');
+    }
+
+    // Close modal when background clicked
+    document.getElementById('imageModal').addEventListener('click', function(e) {
+        if (e.target.id === 'imageModal') {
+            closeModal();
+        }
+    });
+</script>
+
+<!-- Optional Fade Animation -->
+<style>
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.3s ease;
+}
+</style>
+
 
 <!-- Section: Social Proof / Testimonial -->
 <section class="py-32 bg-zinc-950 border-t border-zinc-900 relative overflow-hidden">
