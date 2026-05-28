@@ -271,7 +271,7 @@
         document.getElementById('imageModal').classList.remove('flex');
     }
 
-    // Close modal when background clicked
+    // Close when clicking outside image
     document.getElementById('imageModal').addEventListener('click', function(e) {
         if (e.target.id === 'imageModal') {
             closeModal();
@@ -279,8 +279,11 @@
     });
 
     // Close with ESC keyboard
-    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeModal(); }
-                                                      
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
 </script>
 
 <!-- Optional Fade Animation -->
